@@ -1,0 +1,3 @@
+/home/emoryfreitas/Cplusplus-testing/Soundex/build/CMakeFiles/edit_cache.dir
+/home/emoryfreitas/Cplusplus-testing/Soundex/build/CMakeFiles/rebuild_cache.dir
+/home/emoryfreitas/Cplusplus-testing/Soundex/build/CMakeFiles/runTests.dir

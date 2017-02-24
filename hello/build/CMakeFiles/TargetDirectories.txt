@@ -1,0 +1,3 @@
+/home/emoryfreitas/Cplusplus-testing/hello/build/CMakeFiles/edit_cache.dir
+/home/emoryfreitas/Cplusplus-testing/hello/build/CMakeFiles/rebuild_cache.dir
+/home/emoryfreitas/Cplusplus-testing/hello/build/CMakeFiles/runTests.dir
