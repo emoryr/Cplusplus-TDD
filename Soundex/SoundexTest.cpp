@@ -1,15 +1,9 @@
+#include "Soundex.h"
 #include <gtest/gtest.h>
-#include <iostream>
 
-class Soundex {
-public:
-  std::string encode(const std::string &word) const { return zeroPad(word); }
+using namespace testing;
 
-private:
-  std::string zeroPad(const std::string &word) const { return word + "000"; }
-};
-
-class SoundexEncoding : public testing::Test {
+class SoundexEncoding : public Test {
 public:
   Soundex soundex;
 };
@@ -20,6 +14,10 @@ TEST_F(SoundexEncoding, RetainsSoleLetterOfOneLetterWord) {
 
 TEST_F(SoundexEncoding, PadsWithZerosToEnsureThreeDigits) {
   ASSERT_EQ(soundex.encode("I"), "I000");
+}
+
+TEST_F(SoundexEncoding, ReplacesConsonantsWithAppropriateDigits) {
+  ASSERT_EQ(soundex.encode("Ab"), "A100");
 }
 
 int main(int argc, char **argv) {
