@@ -11,18 +11,21 @@ https://github.com/google/googletest/tree/master/googlemock -automatic!
 
 ##HOW TO INSTALL PRE-REQUESITES
 1. Gtest
-	sudo apt-get install cmake
-	sudo apt-get install libgtest-dev
-	cd /usr/src/gtest
-	sudo mkdir build; cd build
-	sudo cmake ../
-	sudo make
-	sudo cp *.a /usr/lib
+
+	sudo apt-get install cmake\
+	sudo apt-get install libgtest-dev\
+	cd /usr/src/gtest\
+	sudo mkdir build; cd build\
+	sudo cmake ../ \
+	sudo make \
+	sudo cp *.a /usr/lib \
+
 2. GMock
-	sudo apt-get install cmake
-	sudo apt-get install google-mock
-	cd /usr/src/gmock
-	sudo mkdir build; cd build
-	sudo cmake ../
-	sudo make
-	sudo cp *.a /usr/lib
+
+	sudo apt-get install cmake \
+	sudo apt-get install google-mock \
+	cd /usr/src/gmock \
+	sudo mkdir build; cd build \
+	sudo cmake ../ \
+	sudo make \
+	sudo cp *.a /usr/lib \
