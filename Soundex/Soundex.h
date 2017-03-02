@@ -23,8 +23,11 @@ private:
 
   std::string encodedDigits(const std::string &word) const {
     std::string encoding;
-    for (auto letter : word)
+    for (auto letter : word) {
+      if (isComplete(encoding))
+        break;
       encoding += encodedDigit(letter);
+    }
     return encoding;
   }
 
@@ -35,6 +38,10 @@ private:
         {'d', "3"}, {'t', "3"}, {'l', "4"}, {'m', "5"}, {'n', "5"}, {'r', "6"}};
     auto it = encodings.find(letter);
     return it == encodings.end() ? "" : it->second;
+  }
+
+  bool isComplete(const std::string &encoding) const {
+    return encoding.length() == MaxCodeLength - 1;
   }
 };
 

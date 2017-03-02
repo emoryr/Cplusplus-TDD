@@ -30,6 +30,14 @@ TEST_F(SoundexEncoding, ReplacesMultipleConsonantsWithDigits) {
   ASSERT_EQ(soundex.encode("Acdl"), "A234");
 }
 
+TEST_F(SoundexEncoding, LimitsLengthToFourCharacters) {
+  ASSERT_EQ(soundex.encode("Dcdlb").length(), 4u);
+}
+
+TEST_F(SoundexEncoding, IgnoresVowelLikeLetters) {
+  ASSERT_EQ(soundex.encode("Baeiouhycdl"), "B234");
+}
+
 int main(int argc, char **argv) {
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
