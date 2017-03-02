@@ -20,9 +20,11 @@ private:
 
   std::string encodedDigits(const std::string &word) const {
     if (word.length() > 1)
-      return "1";
+      return encodedDigit();
     return "";
   }
+
+  std::string encodedDigit() const { return "1"; }
 };
 
 #endif
