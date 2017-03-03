@@ -44,17 +44,20 @@ private:
   }
 
   void encodeTail(std::string &encoding, const std::string &word) const {
-    for (auto letter : tail(word)) {
-      if (isComplete(encoding))
-        break;
-      encodeLetter(encoding, letter);
+    for (auto i = 1u; i < word.length(); i++) {
+      if (!isComplete(encoding))
+        encodeLetter(encoding, word[i], word[i - 1]);
     }
   }
 
-  void encodeLetter(std::string &word, char letter) const {
+  void encodeLetter(std::string &word, char letter, char lastletter) const {
     auto digit = encodedDigit(letter);
-    if (digit != NotADigit && digit != lastDigit(word))
+    if (digit != NotADigit && (digit != lastDigit(word) || isVowel(lastletter)))
       word += digit;
+  }
+
+  bool isVowel(char letter) const {
+    return std::string("aeiouy").find(lower(letter)) != std::string::npos;
   }
 
   bool isComplete(const std::string &encoding) const {
