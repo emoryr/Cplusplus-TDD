@@ -49,6 +49,10 @@ TEST_F(SoundexEncoding, UppercasesFirstLetter) {
   ASSERT_THAT(soundex.encode("abcd"), testing::StartsWith("A"));
 }
 
+TEST_F(SoundexEncoding, IgnoresCaseWhenEncodingConsonants) {
+  ASSERT_EQ(soundex.encode("BCDL"), soundex.encode("Bcdl"));
+}
+
 int main(int argc, char **argv) {
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();

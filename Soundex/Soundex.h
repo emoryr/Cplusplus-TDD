@@ -16,7 +16,7 @@ public:
         {'b', "1"}, {'f', "1"}, {'p', "1"}, {'v', "1"}, {'c', "2"}, {'g', "2"},
         {'j', "2"}, {'k', "2"}, {'q', "2"}, {'s', "2"}, {'x', "2"}, {'z', "2"},
         {'d', "3"}, {'t', "3"}, {'l', "4"}, {'m', "5"}, {'n', "5"}, {'r', "6"}};
-    auto it = encodings.find(letter);
+    auto it = encodings.find(lower(letter));
     return it == encodings.end() ? NotADigit : it->second;
   }
 
@@ -57,6 +57,10 @@ private:
   std::string upperFront(const std::string &word) const {
     return std::string(1,
                        std::toupper(static_cast<unsigned char>(word.front())));
+  }
+
+  char lower(char c) const {
+    return std::tolower(static_cast<unsigned char>(c));
   }
 };
 
