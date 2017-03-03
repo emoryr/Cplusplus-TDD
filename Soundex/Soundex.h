@@ -47,10 +47,14 @@ private:
     for (auto letter : tail(word)) {
       if (isComplete(encoding))
         break;
-      auto digit = encodedDigit(letter);
-      if (digit != NotADigit && digit != lastDigit(encoding))
-        encoding += digit;
+      encodeLetter(encoding, letter);
     }
+  }
+
+  void encodeLetter(std::string &word, char letter) const {
+    auto digit = encodedDigit(letter);
+    if (digit != NotADigit && digit != lastDigit(word))
+      word += digit;
   }
 
   bool isComplete(const std::string &encoding) const {
