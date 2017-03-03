@@ -1,9 +1,8 @@
 #include "Soundex.h"
+#include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
-using namespace testing;
-
-class SoundexEncoding : public Test {
+class SoundexEncoding : public testing::Test {
 public:
   Soundex soundex;
 };
@@ -44,6 +43,10 @@ TEST_F(SoundexEncoding, CombinesDuplicateEncodings) {
   ASSERT_EQ(soundex.encodedDigit('d'), soundex.encodedDigit('t'));
 
   ASSERT_EQ(soundex.encode("Abfcgdt"), "A123");
+}
+
+TEST_F(SoundexEncoding, UppercasesFirstLetter) {
+  ASSERT_THAT(soundex.encode("abcd"), testing::StartsWith("A"));
 }
 
 int main(int argc, char **argv) {
